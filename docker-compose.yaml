@@ -10,15 +10,6 @@ services:
     networks:
       - app-network
     restart: on-failure
-    develop:
-      watch:
-        - path: .
-          action: rebuild
-          ignore:
-            - venv/*
-            - pyrightconfig.json
-            - README.md
-            - '.git'
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:7001/healthcheck"]
       interval: 30s
